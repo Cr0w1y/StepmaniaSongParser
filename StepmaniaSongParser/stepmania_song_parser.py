@@ -1,22 +1,23 @@
-import FolderParser
-import HelperFunctions
+import folder_parser
+import debug_data
+import folder_actions
 
 # Debug / Release
 debug = True
 release = False
 
 # Folder path
-folderContainingSongs = "C:\\Users\\craig\\Downloads\\NewSongs"
-debugFolder = "C:\\Users\\craig\\Downloads\\Output\\"
+songs_folder = "C:\\Users\\craig\\Downloads\\NewSongs"
+debug_folder = "C:\\Users\\craig\\Downloads\\Output\\"
 
 # ----------------------- Populate data -----------------------
-allStepmaniaFiles = FolderParser.parseAll(folderContainingSongs)
+all_songs_list = folder_parser.parse_all(songs_folder)
 # -------------------------------------------------------------
 
 # -------------------- Generate Debug info --------------------
-HelperFunctions.DebugSteps(allStepmaniaFiles, debugFolder, debug)
+debug_data.debug_steps(all_songs_list, debug_folder, debug)
 # -------------------------------------------------------------
 
 # --------------- Actually Modify Song Folders ----------------
-HelperFunctions.ReleaseSteps(allStepmaniaFiles, release)
+folder_actions.release_steps(all_songs_list, release)
 # -------------------------------------------------------------
